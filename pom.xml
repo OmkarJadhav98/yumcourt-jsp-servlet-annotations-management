@@ -17,25 +17,6 @@
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <java.version>21</java.version> <!-- Ensure this matches your Java version -->
-  </properties>
-
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.11.0</version> <!-- Ensure compatibility with Java 17 -->
-        <configuration>
-          <source>${java.version}</source>
-          <target>${java.version}</target>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
-
   <dependencies>
     <dependency>
       <groupId>javax.servlet</groupId>
@@ -51,10 +32,19 @@
     </dependency>
 
     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-data-jpa</artifactId>
-      <version>3.1.1</version> <!-- Ensure compatibility with Spring Boot version -->
+      <groupId>jakarta.servlet</groupId>
+      <artifactId>jakarta.servlet-api</artifactId>
+      <version>6.1.0</version>
+      <scope>provided</scope>
     </dependency>
+
+    <dependency>
+      <groupId>jakarta.servlet.jsp</groupId>
+      <artifactId>jakarta.servlet.jsp-api</artifactId>
+      <version>3.0.0</version>
+      <scope>provided</scope>
+    </dependency>
+
 
     <dependency>
       <groupId>com.mysql</groupId>
@@ -87,10 +77,16 @@
       <version>1.18.28</version>
       <scope>provided</scope>
     </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-web</artifactId>
-      <version>6.1.5</version>
-    </dependency>
   </dependencies>
-</project>
+
+<build>
+<plugins>
+  <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-war-plugin</artifactId>
+    <version>3.3.2</version>
+  </plugin>
+</plugins>
+<finalName>yumcourt-jsp-servlet-annotations-management</finalName>
+</build>
+        </project>
